@@ -291,60 +291,16 @@
 
         .guarantee-wrapper { padding: 40px 24px; display: flex; justify-content: center; width: 100%; }
         .platinum-card {
-            width: 100%; max-width: var(--content-width);
-            background: linear-gradient(145deg, #d4af37 0%, #f5e6a3 15%, #bf953f 30%, #fcf6ba 45%, #b38728 60%, #fbf5b7 75%, #aa771c 90%, #d4af37 100%);
-            background-size: 300% 300%;
-            border-radius: 24px; padding: 3px; position: relative; overflow: hidden;
-            box-shadow:
-                0 30px 60px rgba(0,0,0,0.15),
-                0 0 40px rgba(212,175,55,0.15),
-                inset 0 1px 0 rgba(255,255,255,0.4);
-            animation: goldPulse 6s ease-in-out infinite;
+            width: 100%; max-width: var(--content-width); background: linear-gradient(135deg, #e0e0e0 0%, #ffffff 40%, #c0c0c0 100%);
+            border-radius: 24px; padding: 3px; box-shadow: 0 30px 60px rgba(0,0,0,0.12); position: relative; overflow: hidden;
         }
-        @keyframes goldPulse {
-            0%,100% { background-position: 0% 50%; box-shadow: 0 30px 60px rgba(0,0,0,0.15), 0 0 40px rgba(212,175,55,0.15); }
-            50% { background-position: 100% 50%; box-shadow: 0 30px 60px rgba(0,0,0,0.18), 0 0 60px rgba(212,175,55,0.25); }
-        }
-        .platinum-card::before {
-            content: ''; position: absolute; inset: 0; border-radius: 24px;
-            background: linear-gradient(145deg, transparent 30%, rgba(255,255,255,0.3) 50%, transparent 70%);
-            background-size: 200% 200%;
-            animation: shineMove 3s ease-in-out infinite;
-        }
-        @keyframes shineMove { 0%,100% { background-position: -100% -100%; } 50% { background-position: 200% 200%; } }
-        .platinum-card::after {
-            content: ''; position: absolute; top: 0; left: -100%; width: 50%; height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.6), rgba(255,255,255,0.9), rgba(255,255,255,0.6), transparent);
-            transform: skewX(-25deg); animation: platinumShimmer 5s ease-in-out infinite;
-            z-index: 1;
-        }
-        @keyframes platinumShimmer { 0%,100% { left: -100%; } 50% { left: 160%; } }
         .platinum-inner {
-            background: linear-gradient(160deg, #ffffff 0%, #fefcf3 50%, #ffffff 100%);
-            border-radius: 21px; padding: 50px 30px; text-align: center; position: relative;
-            background-image: radial-gradient(circle, rgba(212,175,55,0.04) 1px, transparent 1px);
-            background-size: 20px 20px;
+            background: #fff; border-radius: 21px; padding: 50px 30px; text-align: center;
+            background-image: radial-gradient(#f0f0f0 1.5px, transparent 1.5px); background-size: 20px 20px;
         }
-        .platinum-inner::before {
-            content: ''; position: absolute; inset: 0; border-radius: 21px;
-            border: 1px solid transparent;
-            background: linear-gradient(145deg, rgba(212,175,55,0.1), transparent, rgba(212,175,55,0.05)) border-box;
-            -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
-            -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none;
-        }
-        .platinum-icon {
-            font-size: 3.5rem; margin-bottom: 20px; display: inline-block;
-            background: linear-gradient(145deg, #d4af37, #b38728, #d4af37);
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-            background-clip: text; filter: drop-shadow(0 2px 8px rgba(212,175,55,0.3));
-        }
-        .platinum-title {
-            font-size: 2.2rem; font-weight: 800; margin-bottom: 20px;
-            background: linear-gradient(145deg, #8B6914, #d4af37, #8B6914);
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        .platinum-desc { color: #555; max-width: 600px; margin: 0 auto; font-weight: 500; }
+        .platinum-icon { font-size: 3rem; color: #555; margin-bottom: 20px; }
+        .platinum-title { font-size: 2rem; font-weight: 800; margin-bottom: 20px; }
+        .platinum-desc { color: #666; max-width: 600px; margin: 0 auto; }
 
         footer { background: #FFFFFF; padding: 80px 0 30px; border-top: 1px solid #E5E5E5; margin-top: 60px; }
         .footer-container { max-width: var(--content-width); margin: 0 auto; padding: 0 24px; }
