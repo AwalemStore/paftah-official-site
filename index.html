@@ -294,6 +294,12 @@
             width: 100%; max-width: var(--content-width); background: linear-gradient(135deg, #e0e0e0 0%, #ffffff 40%, #c0c0c0 100%);
             border-radius: 24px; padding: 3px; box-shadow: 0 30px 60px rgba(0,0,0,0.12); position: relative; overflow: hidden;
         }
+        .platinum-card::after {
+            content: ''; position: absolute; top: 0; left: -100%; width: 60%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.5), rgba(255,255,255,0.8), rgba(255,255,255,0.5), transparent);
+            transform: skewX(-20deg); animation: platinumShimmer 4s ease-in-out infinite;
+        }
+        @keyframes platinumShimmer { 0%,100% { left: -100%; } 50% { left: 150%; } }
         .platinum-inner {
             background: #fff; border-radius: 21px; padding: 50px 30px; text-align: center;
             background-image: radial-gradient(#f0f0f0 1.5px, transparent 1.5px); background-size: 20px 20px;
