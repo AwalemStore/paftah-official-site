@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PAFTAH | The New Standard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-body: #F5F5F7;
+            --text-primary: #1D1D1F;
+            --text-secondary: #86868B;
+            --brand-purple: #6A4C9C;
+            --brand-purple-light: #8A6FD4;
+            --bar-bg: #E5E5EA;
+            --radius: 28px;
+            /* التدرج اللوني الموحد */
+            --main-gradient: linear-gradient(135deg, var(--brand-purple), #9D50BB);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; outline: none; }
+
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-primary);
+            line-height: 1.5;
+            overflow-x: hidden;
+        }
+
+        .en-font { font-family: 'Poppins', sans-serif; }
+
+        /* --- الهيدر --- */
+        nav {
+            position: fixed; top: 0; width: 100%; height: 70px;
+            background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0,0,0,0.05); z-index: 1000;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .nav-container { 
+            width: 100%; max-width: 1100px; padding: 0 24px; /* مسافات مثالية */
+            display: flex; justify-content: center; align-items: center; 
+        }
+        .logo { font-size: 1.6rem; font-weight: 900; color: #000; letter-spacing: -0.5px; }
+
+        /* --- الهيرو (تم التعديل) --- */
+        .hero {
+            padding-top: 160px; padding-bottom: 80px; text-align: center; max-width: 1000px; margin: 0 auto;
+            display: flex; flex-direction: column; align-items: center; position: relative;
+            background: radial-gradient(circle at 50% 30%, rgba(106, 76, 156, 0.08) 0%, transparent 60%);
+            padding-left: 24px; padding-right: 24px; /* مسافات جانبية آمنة */
+        }
+
+        .hero::before {
+            content: ''; position: absolute; top: 10%; left: 50%; transform: translateX(-50%);
+            width: 300px; height: 300px;
+            background: linear-gradient(135deg, rgba(138, 111, 212, 0.2), rgba(0, 113, 227, 0.1));
+            filter: blur(80px); border-radius: 50%;
+            z-index: -1; animation: breathe 8s infinite ease-in-out;
+        }
+        @keyframes breathe { 0%, 100% { transform: translateX(-50%) scale(1); opacity: 0.5; } 50% { transform: translateX(-50%) scale(1.2); opacity: 0.8; } }
+
+        /* تعديل العنوان لمنع قص النقاط */
+        .hero h1 { 
+            font-size: 4.5rem; font-weight: 800; color: #000; margin-bottom: 25px; 
+            letter-spacing: -1px; position: relative; z-index: 1;
+            line-height: 1.3; /* زيادة الارتفاع لمنع القص */
+        }
+        
+        .gradient-text {
+            background: var(--main-gradient);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            display: inline-block; /* ضروري لضبط البادينغ */
+            padding-bottom: 10px; /* مسافة أمان للنقاط السفلية */
+        }
+
+        .hero-desc { 
+            font-size: 1.3rem; color: var(--text-secondary); max-width: 650px; margin: 0 auto 40px; 
+            font-weight: 500;
+        }
+        
+        .cta-btn {
+            background: #000; color: #fff; padding: 16px 40px; border-radius: 50px;
+            font-size: 1.1rem; font-weight: 600; text-decoration: none; transition: 0.3s;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        .cta-btn:hover { transform: translateY(-3px); box-shadow: 0 15px 40px rgba(0,0,0,0.15); }
+
+        .product-img {
+            width: 100%; max-width: 360px; filter: drop-shadow(0 50px 100px rgba(106, 76, 156, 0.2));
+            margin-top: 50px; transition: transform 0.5s;
+            content: url('https://placehold.co/400x550/6A4C9C/FFFFFF?text=PAFTAH+Pro');
+            animation: floatHero 6s ease-in-out infinite;
+        }
+        @keyframes floatHero { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+
+        /* --- الشبكة (Bento Grid) --- */
+        .grid-section { 
+            padding: 60px 24px; /* مسافات UI مثالية */
+            background-image: radial-gradient(circle at 50% 50%, rgba(106, 76, 156, 0.04) 0%, transparent 70%);
+        }
+        .bento-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+            max-width: 1100px; margin: 0 auto;
+        }
+
+        .card {
+            background: #fff; border-radius: var(--radius); padding: 35px;
+            display: flex; flex-direction: column; position: relative; overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.02); transition: 0.3s;
+        }
+        .card:hover { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(0,0,0,0.06); }
+
+        .span-2 { grid-column: span 2; }
+        .span-row-2 { grid-row: span 2; }
+
+        .lbl { font-size: 0.8rem; font-weight: 700; color: #A0A0A0; letter-spacing: 1px; margin-bottom: 10px; text-transform: uppercase; }
+        .val { font-size: 4rem; font-weight: 800; line-height: 1; color: var(--brand-purple-light); margin-bottom: 10px; }
+        .val small { font-size: 2.5rem; }
+        .desc { font-size: 1.05rem; color: var(--text-secondary); line-height: 1.5; margin-bottom: 20px; }
+
+        /* Benchmark */
+        .benchmark-box { margin-top: auto; padding-top: 20px; border-top: 1px solid #f5f5f5; }
+        .bench-item { margin-bottom: 15px; }
+        .bench-item:last-child { margin-bottom: 0; }
+        .bench-meta { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 6px; }
+        .bench-label { font-size: 0.85rem; font-weight: 600; color: #999; }
+        .bench-value { font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 0.9rem; color: #999; }
+        .bench-track { width: 100%; height: 10px; background: var(--bar-bg); border-radius: 20px; overflow: hidden; position: relative; }
+        .bench-fill { height: 100%; border-radius: 20px; width: 0; transition: width 1s ease-out; }
+        .fill-std { background: #C7C7CC; width: 30%; }
+        .fill-paftah { background: linear-gradient(90deg, var(--brand-purple), var(--brand-purple-light)); width: 95%; position: relative; overflow: hidden; }
+        .shimmer-bar {
+            position: absolute; top: 0; left: 0; bottom: 0; width: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.6), transparent);
+            transform: translateX(-100%); animation: shineEffect 4s infinite;
+        }
+        @keyframes shineEffect { 0% { transform: translateX(-100%); } 40% { transform: translateX(100%); } 100% { transform: translateX(100%); } }
+
+        /* كرت OMAX الزجاجي (تحديث التدرج) */
+        .omax-glass {
+            background: rgba(138, 111, 212, 0.1); backdrop-filter: blur(30px); -webkit-backdrop-filter: blur(30px);
+            border: 1px solid rgba(255, 255, 255, 0.8); box-shadow: 0 20px 60px rgba(106, 76, 156, 0.15);
+            display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;
+        }
+        .omax-glass::after {
+            content: ''; position: absolute; inset: 0; border-radius: var(--radius); padding: 2px;
+            background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(138, 111, 212, 0.3));
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none;
+        }
+        
+        /* تطبيق التدرج على الأيقونة والعنوان */
+        .omax-gradient-text {
+            background: var(--main-gradient);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            display: inline-block;
+        }
+        
+        .omax-icon { 
+            font-size: 5rem; margin-bottom: 20px; animation: pulse 2s infinite; 
+            /* التدرج الجديد للأيقونة */
+            background: var(--main-gradient);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+        @keyframes pulse { 0%,100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.1); opacity: 0.8; } }
+
+        /* الأحجام */
+        .sizes-row { display: flex; justify-content: space-between; align-items: flex-end; margin-top: auto; gap: 10px; }
+        .size-item { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 8px; flex: 1; }
+        .bag-icon { background: #F4EFFD; border-radius: 8px; width: 100%; display: flex; align-items: center; justify-content: center; color: var(--brand-purple); transition: 0.3s; }
+        .size-item:hover .bag-icon { background: var(--brand-purple); color: #fff; }
+        .s-250 { height: 40px; font-size: 1rem; }
+        .s-1k { height: 55px; font-size: 1.2rem; }
+        .s-2k { height: 70px; font-size: 1.4rem; }
+        .s-25k { height: 85px; font-size: 1.6rem; background: #eaddff; font-weight: bold; }
+        .size-label { font-size: 0.85rem; font-weight: 700; color: var(--text-primary); font-family: 'Poppins', sans-serif; }
+
+        /* الضمان البلاتيني */
+        .guarantee-wrapper { padding: 40px 24px; display: flex; justify-content: center; }
+        .platinum-card {
+            width: 100%; max-width: 850px; margin: 0 15px; 
+            background: linear-gradient(135deg, #e0e0e0 0%, #ffffff 40%, #c0c0c0 100%);
+            border-radius: 24px; padding: 3px; box-shadow: 0 30px 60px rgba(0,0,0,0.12);
+            position: relative; overflow: hidden; transform-style: preserve-3d;
+        }
+        .platinum-inner {
+            background: #fff; border-radius: 21px; padding: 50px 30px; text-align: center; position: relative; z-index: 2;
+            background-image: radial-gradient(#f0f0f0 1.5px, transparent 1.5px); background-size: 20px 20px;
+        }
+        .flash-shine {
+            position: absolute; top: 0; left: -100%; width: 50%; height: 100%;
+            background: linear-gradient(to right, transparent, rgba(255,255,255,0.9), transparent);
+            transform: skewX(-20deg); animation: flash 3s infinite ease-in-out; pointer-events: none; z-index: 10;
+        }
+        @keyframes flash { 0% { left: -100%; } 30% { left: 200%; } 100% { left: 200%; } }
+        .plat-icon { font-size: 3rem; color: #555; margin-bottom: 20px; filter: drop-shadow(0 2px 0 #fff); }
+
+        /* الفوتر */
+        footer { background: #FFFFFF; padding: 80px 24px 40px; border-top: 1px solid #E5E5E5; margin-top: 60px; }
+        .footer-cols { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; max-width: 1100px; margin: 0 auto 60px; }
+        .footer-logo-col p { font-size: 0.9rem; color: var(--text-secondary); margin-top: 15px; max-width: 300px; }
+        .footer-title { font-size: 0.8rem; font-weight: 700; color: #1D1D1F; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 20px; font-family: 'Poppins', sans-serif; }
+        .footer-link { display: block; color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; margin-bottom: 12px; transition: 0.2s; }
+        .footer-link:hover { color: var(--brand-purple); }
+        .footer-bottom { max-width: 1100px; margin: 0 auto; padding-top: 30px; border-top: 1px solid #F0F0F0; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
+        .copyright { font-size: 0.8rem; color: #999; }
+        .legal-links { display: flex; gap: 20px; }
+        .legal-links a { font-size: 0.8rem; color: #666; text-decoration: none; }
+        .corp-contact { margin-top: 20px; font-family: 'Poppins', sans-serif; font-weight: 600; color: #1D1D1F; font-size: 1.1rem; display: block; text-decoration: none; direction: ltr; text-align: right; }
+
+        @media (max-width: 900px) {
+            .hero h1 { font-size: 3rem; }
+            .bento-grid { grid-template-columns: 1fr; }
+            .span-2, .span-row-2 { grid-column: span 1; grid-row: span 1; }
+            .footer-cols { grid-template-columns: 1fr; gap: 40px; text-align: right; }
+            .footer-bottom { flex-direction: column; align-items: flex-start; }
+            .corp-contact { text-align: right; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="nav-container">
+            <div class="logo en-font">PAFTAH</div>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <h1>بفتة: المعيار الجديد <br> <span class="gradient-text">للنقاء.</span></h1>
+        
+        <p class="hero-desc">
+            علامة تجارية سعودية بمعايير عالمية. تركيبة مركزة 18.93% تعيد للملابس حياتها ونقاءها.
+        </p>
+
+        <a href="#contact" class="cta-btn">طلب للشركات</a>
+
+        <img src="https://placehold.co/400x550/6A4C9C/FFFFFF?text=PAFTAH+Pro" class="product-img" alt="Paftah Box">
+    </section>
+
+    <section class="grid-section">
+        <div class="bento-grid">
+            
+            <div class="card span-2">
+                <div class="lbl en-font">ACTIVE MATTER</div>
+                <div class="val en-font">18.93<small>%</small></div>
+                <div class="desc">تركيز فعال يتفوق على المواصفات القياسية بـ 3 أضعاف.</div>
+                
+                <div class="benchmark-box">
+                    <div class="bench-item">
+                        <div class="bench-meta">
+                            <span class="bench-label">Standard GSO</span>
+                            <span class="bench-value">6%</span>
+                        </div>
+                        <div class="bench-track"><div class="bench-fill fill-std"></div></div>
+                    </div>
+                    <div class="bench-item">
+                        <div class="bench-meta">
+                            <span class="bench-label" style="color: var(--brand-purple); font-weight: 700;">Paftah Pro</span>
+                            <span class="bench-value" style="color: var(--brand-purple); font-weight: 700;">18.93%</span>
+                        </div>
+                        <div class="bench-track">
+                            <div class="bench-fill fill-paftah">
+                                <div class="shimmer-bar"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card omax-glass span-row-2">
+                <i class="fas fa-atom omax-icon"></i>
+                <div class="val en-font omax-gradient-text" style="font-size: 3rem; margin-bottom: 10px;">OMAX</div>
+                <div class="desc">تكنولوجيا النانو للتنظيف العميق.</div>
+            </div>
+
+            <div class="card">
+                <div class="lbl en-font">ACTIVE OXYGEN</div>
+                <div class="val en-font">5.95<small>%</small></div>
+                <div class="desc">تعقيم وإزالة للبقع.</div>
+            </div>
+
+            <div class="card">
+                <div class="lbl en-font">CERTIFIED</div>
+                <div class="val en-font" style="font-size: 2.5rem; padding-top: 5px;">SASO</div>
+                <div class="desc">مطابق للمواصفات.</div>
+            </div>
+
+            <div class="card span-2">
+                <div class="lbl en-font">PACKAGING OPTIONS</div>
+                <div class="desc">خيارات متعددة تناسب كافة الاحتياجات.</div>
+                <div class="sizes-row">
+                    <div class="size-item"><div class="bag-icon s-250"><i class="fas fa-box-open"></i></div><span class="size-label">250g</span></div>
+                    <div class="size-item"><div class="bag-icon s-1k"><i class="fas fa-shopping-bag"></i></div><span class="size-label">1kg</span></div>
+                    <div class="size-item"><div class="bag-icon s-2k"><i class="fas fa-shopping-bag"></i></div><span class="size-label">2.5kg</span></div>
+                    <div class="size-item"><div class="bag-icon s-25k"><i class="fas fa-industry"></i></div><span class="size-label">25kg</span></div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <div class="guarantee-wrapper">
+        <div class="platinum-card">
+            <div class="flash-shine"></div>
+            <div class="platinum-inner">
+                <i class="fas fa-shield-alt plat-icon"></i>
+                <h2 style="font-size: 2rem; font-weight: 800; margin-bottom: 20px; color: #333;">الضمان البلاتيني</h2>
+                <p style="font-size: 1.1rem; color: #666; max-width: 600px; margin: 0 auto 30px;">
+                    نلتزم باسترجاع كامل القيمة للشركات في حال عدم مطابقة المنتج للمواصفات المخبرية المعلنة (SASO/Bureau Veritas).
+                </p>
+                <div style="font-family: monospace; background: #eee; padding: 6px 12px; border-radius: 6px; display: inline-block; color: #555;">
+                    DOC: PT-2026-SECURE
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer id="contact">
+        <div class="footer-cols">
+            <div class="footer-logo-col">
+                <div class="logo en-font">PAFTAH</div>
+                <p>علامة تجارية سعودية (Saudi Brand) تعيد تعريف معايير النظافة. نجمع بين التكنولوجيا الألمانية والخبرة المحلية.</p>
+                <a href="tel:+966552268433" class="corp-contact">+966 55 226 8433</a>
+            </div>
+
+            <div>
+                <div class="footer-title">Company</div>
+                <a href="#" class="footer-link">من نحن</a>
+                <a href="#" class="footer-link">قصتنا</a>
+                <a href="#" class="footer-link">المهمة والقيم</a>
+            </div>
+
+            <div>
+                <div class="footer-title">Business</div>
+                <a href="#" class="footer-link">البيع بالجملة</a>
+                <a href="#" class="footer-link">التصدير</a>
+                <a href="#" class="footer-link">طلب عرض سعر</a>
+            </div>
+
+            <div>
+                <div class="footer-title">Resources</div>
+                <a href="#" class="footer-link">شهادات الجودة</a>
+                <a href="#" class="footer-link">المواصفات الفنية</a>
+                <a href="#" class="footer-link">تواصل معنا</a>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="copyright en-font">Copyright © 2026 Paftah Inc. All rights reserved.</div>
+            <div class="legal-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Use</a>
+                <a href="#">Sales Policy</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
